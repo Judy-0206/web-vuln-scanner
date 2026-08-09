@@ -1,0 +1,31 @@
+# 格式：TYPE|PAYLOAD
+# 无害反射型 XSS 探针（不会外联、不会修改数据）
+XSS|<wvs-xss-probe>
+XSS|<svg onload=alert(1)>
+
+# 错误型 SQL 注入探针
+SQLI|'
+SQLI|"
+SQLI|')
+SQLI|1'
+
+# 命令注入探针（无害标记，不执行破坏性命令）
+CMDI|wvscmdi;id
+CMDI|wvscmdi||id
+CMDI|wvscmdi`id`
+# echo 输出标记（Windows/Linux 通用，命令输出证明）
+CMDI|wvscmdi||echo wvscmdiok
+CMDI|wvscmdi;echo wvscmdiok
+
+# 路径穿越探针（读取系统文件特征）
+TRAVERSAL|../../../../../../etc/passwd
+TRAVERSAL|..\..\..\..\..\..\windows\win.ini
+
+# 服务端模板注入探针（求值回显，期望值为唯一长数字）
+SSTI|{{99999*99999}}
+SSTI|${99999*99999}
+SSTI|<%= 99999*99999 %>
+
+# 开放重定向探针
+REDIRECT|//evil.invalid/x
+REDIRECT|http://evil.invalid/x

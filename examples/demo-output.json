@@ -1,0 +1,134 @@
+{
+  "target": "http://127.0.0.1:18080/",
+  "scan_time": "2026-08-08T10:44:17+00:00",
+  "ports": [
+    18080
+  ],
+  "directories": [
+    {
+      "path": "/admin",
+      "url": "http://127.0.0.1:18080/admin",
+      "status": 200,
+      "length": 11,
+      "redirect": null
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "type": "Error-based SQL Injection",
+      "severity": "high",
+      "url": "http://127.0.0.1:18080/sql?q=%27",
+      "method": "GET",
+      "parameter": "q",
+      "payload": "'",
+      "evidence": "you have an error in your sql syntax",
+      "raw_request": "GET /sql?q=%27 HTTP/1.1\r\nHost: 127.0.0.1:18080\r\nUser-Agent: web-vuln-scanner/1.0 (+authorized-security-testing)\r\nAccept: */*\r\nConnection: close\r\n\r\n",
+      "raw_response": "HTTP/1.1 500 Internal Server Error\r\nContent-Length: 47\r\n\r\nYou have an error in your SQL syntax near quote",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:18080/sql?q=%27",
+        "headers": {
+          "User-Agent": "web-vuln-scanner/1.0 (+authorized-security-testing)"
+        }
+      },
+      "response": {
+        "status": 500,
+        "length": 47,
+        "evidence": "you have an error in your sql syntax"
+      }
+    },
+    {
+      "type": "Error-based SQL Injection",
+      "severity": "high",
+      "url": "http://127.0.0.1:18080/sql?q=%27%29",
+      "method": "GET",
+      "parameter": "q",
+      "payload": "')",
+      "evidence": "you have an error in your sql syntax",
+      "raw_request": "GET /sql?q=%27%29 HTTP/1.1\r\nHost: 127.0.0.1:18080\r\nUser-Agent: web-vuln-scanner/1.0 (+authorized-security-testing)\r\nAccept: */*\r\nConnection: close\r\n\r\n",
+      "raw_response": "HTTP/1.1 500 Internal Server Error\r\nContent-Length: 47\r\n\r\nYou have an error in your SQL syntax near quote",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:18080/sql?q=%27%29",
+        "headers": {
+          "User-Agent": "web-vuln-scanner/1.0 (+authorized-security-testing)"
+        }
+      },
+      "response": {
+        "status": 500,
+        "length": 47,
+        "evidence": "you have an error in your sql syntax"
+      }
+    },
+    {
+      "type": "Error-based SQL Injection",
+      "severity": "high",
+      "url": "http://127.0.0.1:18080/sql?q=1%27",
+      "method": "GET",
+      "parameter": "q",
+      "payload": "1'",
+      "evidence": "you have an error in your sql syntax",
+      "raw_request": "GET /sql?q=1%27 HTTP/1.1\r\nHost: 127.0.0.1:18080\r\nUser-Agent: web-vuln-scanner/1.0 (+authorized-security-testing)\r\nAccept: */*\r\nConnection: close\r\n\r\n",
+      "raw_response": "HTTP/1.1 500 Internal Server Error\r\nContent-Length: 47\r\n\r\nYou have an error in your SQL syntax near quote",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:18080/sql?q=1%27",
+        "headers": {
+          "User-Agent": "web-vuln-scanner/1.0 (+authorized-security-testing)"
+        }
+      },
+      "response": {
+        "status": 500,
+        "length": 47,
+        "evidence": "you have an error in your sql syntax"
+      }
+    },
+    {
+      "type": "Reflected XSS",
+      "severity": "medium",
+      "url": "http://127.0.0.1:18080/reflect?q=%3Cwvs-xss-probe%3E",
+      "method": "GET",
+      "parameter": "q",
+      "payload": "<wvs-xss-probe>",
+      "evidence": "<wvs-xss-probe>",
+      "raw_request": "GET /reflect?q=%3Cwvs-xss-probe%3E HTTP/1.1\r\nHost: 127.0.0.1:18080\r\nUser-Agent: web-vuln-scanner/1.0 (+authorized-security-testing)\r\nAccept: */*\r\nConnection: close\r\n\r\n",
+      "raw_response": "HTTP/1.1 200 OK\r\nContent-Length: 22\r\n\r\nresult=<wvs-xss-probe>",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:18080/reflect?q=%3Cwvs-xss-probe%3E",
+        "headers": {
+          "User-Agent": "web-vuln-scanner/1.0 (+authorized-security-testing)"
+        }
+      },
+      "response": {
+        "status": 200,
+        "length": 22,
+        "evidence": "<wvs-xss-probe>"
+      }
+    },
+    {
+      "type": "Reflected XSS",
+      "severity": "medium",
+      "url": "http://127.0.0.1:18080/reflect?q=%3Csvg+onload%3Dalert%281%29%3E",
+      "method": "GET",
+      "parameter": "q",
+      "payload": "<svg onload=alert(1)>",
+      "evidence": "<svg onload=alert(1)>",
+      "raw_request": "GET /reflect?q=%3Csvg+onload%3Dalert%281%29%3E HTTP/1.1\r\nHost: 127.0.0.1:18080\r\nUser-Agent: web-vuln-scanner/1.0 (+authorized-security-testing)\r\nAccept: */*\r\nConnection: close\r\n\r\n",
+      "raw_response": "HTTP/1.1 200 OK\r\nContent-Length: 28\r\n\r\nresult=<svg onload=alert(1)>",
+      "request": {
+        "method": "GET",
+        "url": "http://127.0.0.1:18080/reflect?q=%3Csvg+onload%3Dalert%281%29%3E",
+        "headers": {
+          "User-Agent": "web-vuln-scanner/1.0 (+authorized-security-testing)"
+        }
+      },
+      "response": {
+        "status": 200,
+        "length": 28,
+        "evidence": "<svg onload=alert(1)>"
+      }
+    }
+  ],
+  "errors": []
+}

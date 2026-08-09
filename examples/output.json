@@ -1,0 +1,16 @@
+{
+  "target": "http://127.0.0.1:8000/search?q=demo",
+  "scan_time": "2026-08-08T12:34:56+00:00",
+  "ports": [8000],
+  "directories": [
+    {
+      "path": "/admin",
+      "url": "http://127.0.0.1:8000/admin",
+      "status": 200,
+      "length": 11,
+      "redirect": null
+    }
+  ],
+  "vulnerabilities": [],
+  "errors": []
+}

@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+coverage.xml
+htmlcov/
+.DS_Store
+
+# 扫描报告（含目标地址等本地数据，不上传）
+reports/
